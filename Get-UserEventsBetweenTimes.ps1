@@ -1,4 +1,5 @@
-﻿
+﻿# Afficher les événements concernant un utilisateur entre deux heures spécifiques
+
 param(
     [Parameter(Mandatory=$true)]    
     [string]$User,       # Nom de l'utilisateur
@@ -9,9 +10,9 @@ param(
 )
 
 try {
-    $startTime = Get-Date $StartTime -ErrorAction Stop
+    $startTime = Get-Date $StartTime -Format "dd/MM/yyyy HH:mm:ss" -ErrorAction Stop
     $startTime
-    $endTime = Get-Date $EndTime -ErrorAction Stop
+    $endTime = Get-Date $EndTime -Format "dd/MM/yyyy HH:mm:ss" -ErrorAction Stop
     $endTime
 } catch {
     Write-Host "Les dates fournies ne sont pas valides. "
@@ -40,4 +41,4 @@ if ($events){
 
 }
 
-# .\Get-UserEventsBetweenTimes.ps1 -User 'username' -StartTime "2024-12-11 08:00:00" -EndTime "2024-12-11 18:00:00"
+# .\Get-UserEventsBetweenTimes.ps1 -User 'username' -StartTime "18/03/2025 12:00:00" -EndTime "18/03/2025 12:00:00"
